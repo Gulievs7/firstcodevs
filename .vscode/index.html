@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendyol Kimi E-ticarət Platform</title>
+    <style>
+        /* Ana CSS sıfırlama və əsas stillər */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6000;
+    --primary-dark: #e55500;
+    --secondary-color: #1a1a1a;
+    --bg-color: #f5f5f5;
+    --white: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --warning-color: #ff9800;
+    --shadow-light: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 16px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 8px 32px rgba(0,0,0,0.2);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Arial', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+}
+
+/* Header stilleri */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+/* Axtarış sahəsi */
+.search-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 30px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 96, 0, 0.1);
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Header aksiyaları */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-action {
+    position: relative;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.header-action:hover {
+    background: var(--bg-color);
+}
+
+.badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Naviqasiya menyu */
+.navbar {
+    background: var(--white);
+    border-top: 1px solid var(--border-color);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    position: relative;
+}
+
+.navbar-link {
+    display: block;
+    padding: 15px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.navbar-link:hover {
+    color: var(--primary-color);
+    background: var(--bg-color);
+}
+
+/* Məhsul şəbəkəsi */
+.products-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Məhsul kartı */
+.product-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: var(--text-light);
+    cursor: pointer;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+    color: var(--error-color);
+    background: rgba(244, 67, 54, 0.1);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--error-color);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Məhsul məlumatları */
+.product-info {
+    padding: 20px;
+}
+
+.product-brand {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    height: 2.8em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 14px;
+}
+
+.rating-count {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.product-pricing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.product-old-price {
+    font-size: 14px;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.price-discount {
+    font-size: 14px;
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.add-to-cart {
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-to-cart:hover {
+    background: var(--primary-dark);
+}
+
+.add-to-cart:active {
+    transform: scale(0.98);
+}
+
+/* Bildirişlər */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    font-weight: 600;
+    box-shadow: var(--shadow-medium);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    min-width: 300px;
+    animation: slideIn 0.3s ease;
+}
+
+.notification-success {
+    background: var(--success-color);
+}
+
+.notification-error {
+    background: var(--error-color);
+}
+
+.notification-warning {
+    background: var(--warning-color);
+}
+
+.notification-info {
+    background: var(--primary-color);
+}
+
+.notification button {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .search-container {
+        order: 3;
+        width: 100%;
+        margin: 0;
+    }
+
+    .header-actions {
+        order: 2;
+    }
+
+    .navbar-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .product-info {
+        padding: 15px;
+    }
+
+    .product-name {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">ShopAZ</a>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Məhsul, brend və ya kateqoriya axtarın">
+                <button class="search-btn">🔍</button>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-action">
+                    ❤️
+                    <span class="badge">3</span>
+                </button>
+                <button class="header-action">
+                    🛒
+                    <span class="badge cart-count">0</span>
+                </button>
+                <button class="header-action">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Naviqasiya -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="#" class="navbar-link">Ana Səhifə</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Qadın</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Kişi</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Uşaq</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Elektronika</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Ev & Yaşayış</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Spor</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Məhsul kateqoriyaları -->
+    <main class="products-container">
+        <h1>Populyar Məhsullar</h1>
+        
+        <div class="products-grid">
+            <!-- Məhsul 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x250/ff6000/ffffff?text=Məhsul+1" alt="Məhsul 1">
+                    <button class="favorite-btn">♡</button>
+                    <span class="discount-badge">%25</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Nike</div>
+                    <h3 class="product-name">Nike Air Max 270 İdman Ayaqqabısı</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(123)</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-price">299₼</span>
+                        <span class="product-old-price">399₼</span>
+                        <span class="price-discount">25% endirim</span>
+                    </div>
+                    <button class="add-to-cart" 
+                            data-product='{"id": 1, "name": "Nike Air Max 270", "price": 299, "image": "product1.jpg"}'>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+
+            <!-- Məhsul 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x250/007acc/ffffff?text=Məhsul+2" alt="Məhsul 2">
+                    <button class="favorite-btn">♡</button>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Samsung</div>
+                    <h3 class="product-name">Samsung Galaxy S24 Ultra 256GB</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(456)</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-price">1899₼</span>
+                    </div>
+                    <button class="add-to-cart" 
+                            data-product='{"id": 2, "name": "Samsung Galaxy S24 Ultra", "price": 1899, "image": "product2.jpg"}'>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+
+            <!-- Məhsul 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x250/28a745/ffffff?text=Məhsul+3" alt="Məhsul 3">
+                    <button class="favorite-btn">♡</button>
+                    <span class="discount-badge">%15</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Adidas</div>
+                    <h3 class="product-name">Adidas Ultraboost 22 Running Ayaqqabı</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(89)</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-price">259₼</span>
+                        <span class="product-old-price">305₼</span>
+                        <span class="price-discount">15% endirim</span>
+                    </div>
+                    <button class="add-to-cart" 
+                            data-product='{"id": 3, "name": "Adidas Ultraboost 22", "price": 259, "image": "product3.jpg"}'>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+
+            <!-- Məhsul 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x250/6f42c1/ffffff?text=Məhsul+4" alt="Məhsul 4">
+                    <button class="favorite-btn">♡</button>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Apple</div>
+                    <h3 class="product-name">Apple MacBook Air M2 13" 256GB</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(234)</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-price">2299₼</span>
+                    </div>
+                    <button class="add-to-cart" 
+                            data-product='{"id": 4, "name": "MacBook Air M2", "price": 2299, "image": "product4.jpg"}'>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+
+            <!-- Məhsul 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x250/dc3545/ffffff?text=Məhsul+5" alt="Məhsul 5">
+                    <button class="favorite-btn">♡</button>
+                    <span class="discount-badge">%40</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Zara</div>
+                    <h3 class="product-name">Zara Qadın Palto Qış Kolleksiyası</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★☆☆</span>
+                        <span class="rating-count">(67)</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-price">119₼</span>
+                        <span class="product-old-price">199₼</span>
+                        <span class="price-discount">40% endirim</span>
+                    </div>
+                    <button class="add-to-cart" 
+                            data-product='{"id": 5, "name": "Zara Qadın Palto", "price": 119, "image": "product5.jpg"}'>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+
+            <!-- Məhsul 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x250/fd7e14/ffffff?text=Məhsul+6" alt="Məhsul 6">
+                    <button class="favorite-btn">♡</button>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Sony</div>
+                    <h3 class="product-name">Sony WH-1000XM4 Wireless Qulaqlıq</h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(345)</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-price">549₼</span>
+                    </div>
+                    <button class="add-to-cart" 
+                            data-product='{"id": 6, "name": "Sony WH-1000XM4", "price": 549, "image": "product6.jpg"}'>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Əvvəlki JavaScript kodlarını buraya əlavə edin
+        
+        // Sadə səbət funksionallığı
+        let cartCount = 0;
+        
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                document.querySelector('.cart-count').textContent = cartCount;
+                
+                // Bildiriş göstər
+                showNotification('Məhsul səbətə əlavə edildi!', 'success');
+            });
+        });
+        
+        // Favori düymələri
+        document.querySelectorAll('.favorite-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                if (this.classList.contains('active')) {
+                    this.innerHTML = '♥';
+                    showNotification('Favorilərə əlavə edildi!', 'info');
+                } else {
+                    this.innerHTML = '♡';
+                    showNotification('Favorilərdən çıxarıldı!', 'warning');
+                }
+            });
+        });
+        
+        // Bildiriş funksiyası
+        function showNotification(message, type = 'info', duration = 3000) {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, duration);
+        }
+    </script>
+</body>
+</html>
