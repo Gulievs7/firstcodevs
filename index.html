@@ -1,191 +1,88 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mənim Portfolio</title>
+    <title>Live View Page-556 catalog Z</title>
+    <link rel="icon" href="https://severalnines.com/wp-content/uploads/2024/07/case-study-2024-07-04-thumbnail-card-tm-900x680.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Ana Səhifə</a></li>
-            <li><a href="#about">Haqqımda</a></li>
-            <li><a href="#projects">Layihələr</a></li>
-            <li><a href="#skills">Bacarıqlar</a></li>
-            <li><a href="#contact">Əlaqə</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="header-1">
+            <i class="fa-solid fa-film"></i>
+            <h1>Catalog-Z</h1>
+        </div>
+        <div class="links">
+            <a href="#" class="active-link">Photos</a>
+            <a href="#" class="videos">Videos</a>
+            <a href="#" class="about">About</a>
+            <a href="#" class="contact">Contact</a>
+        </div>
     </nav>
-
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <h1>Salam, Mən Developer</h1>
-            <p>Veb texnologiyalar və proqramlaşdırma ilə məşğulam</p>
-            <a href="#projects" class="cta-button">Layihələrimə Bax</a>
-        </section>
-
-        <!-- Cards Section -->
-        <section class="cards" id="about">
-            <div class="card">
-                <div class="icon">💻</div>
-                <h2>Frontend Development</h2>
-                <p>HTML, CSS və JavaScript ilə müasir və interaktiv veb səhifələr yaradıram. React və Vue.js kimi framework-lərlə işləyirəm.</p>
+    <main>
+        <div class="search">
+            <img src="https://templatemo.com/templates/templatemo_556_catalog_z/img/hero.jpg" alt="">
+            <div class="search-1">
+                <input type="search" placeholder="Search">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <div class="card">
-                <div class="icon">🎨</div>
-                <h2>UI/UX Dizayn</h2>
-                <p>İstifadəçi dostu və estetik interfeyslər dizayn edirəm. Figma və Adobe XD ilə prototiplər hazırlayıram.</p>
+        </div>
+        <div class="page">
+            <h1>Latest Photos</h1>
+            <p>Page <input type="text" value="1"> of 200</p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+        <div class="buttons">
+            <button class="previous">Previous</button>
+            <div class="little_buttons">
+                <button>1</button>
+                <button class="button_2">2</button>
+                <button class="button_3">3</button>
+                <button class="button_4">4</button>
             </div>
-            <div class="card">
-                <div class="icon">⚡</div>
-                <h2>Backend Development</h2>
-                <p>Node.js, Python və verilənlər bazası sistemləri ilə güclü server tərəfi həllər yaradıram.</p>
+            <button>Next Page</button>
+        </div>
+    </main>
+    <footer>
+        <div class="contain">
+            <div class="contain_1">
+                <div class="basliq">
+                    <h3>About Catalog-Z</h3>
+                 <p>Catalog-Z is free <a href="Bootsrap">Bootstrap 5 </a>Alpha 2 HTML Template for video<br> and photo websites. You can freely use this TemplateMo layout<br> for a front-end integration with any kind of CMS website.</p>
+                </div>
+                
+                <div class="links">
+                    <h3>Our Links</h3>
+                    <a href="#">Advertise</a>
+                    <a href="#">Support</a>
+                    <a href="#">Our Company</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="logo">
+                    <a href="facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+                
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills" id="skills">
-            <h2>Texniki Bacarıqlarım</h2>
-            <div class="skill-bars">
-                <div class="skill">
-                    <span class="skill-name">HTML/CSS</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">JavaScript</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">React.js</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">Python</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">Node.js</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 70%"></div>
-                    </div>
+            <div class="contain_2">
+                <div class="link_end">
+                    <a href="#">Terms of use</a>
+                    <a href="#">Privacy Policy</a>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <p>© 2025 Portfolio Layihəsi | CS50 Kursu üçün hazırlanıb</p>
-        <div class="social-links">
-            <a href="#">📧</a>
-            <a href="#">💼</a>
-            <a href="#">🐦</a>
-            <a href="#">📱</a>
+             <div class="contain_3">
+            <p>Copyright 2020 Catalog-Z Company. All rights reserved.</p>
+            <p>Designed by TemplateMo</p>
+        </div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero');
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
-
-        // Card tilt effect
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-            });
-        });
-
-        // Typing effect for hero title
-        const heroTitle = document.querySelector('.hero h1');
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let index = 0;
-
-        function typeWriter() {
-            if (index < text.length) {
-                heroTitle.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        setTimeout(typeWriter, 500);
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.card, .skills').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
